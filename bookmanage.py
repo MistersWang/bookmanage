@@ -4,10 +4,23 @@ import os
 
 def Login():
 
-def Menumanages():   '''界面'''
-
-def Menustudents():   '''界面'''
-
+def Menumanages():
+    print(" ===================>>>Welcome<<<======================")
+    print("     1、查询馆藏                 2、借阅图书         ")
+    print("     3、归还图书                 4、借阅列表         ")
+    print("     5、个人借阅                 6、增加图书        ")
+    print("     7、删除图书                 8、更改图书         ")
+    print("     9、增加学生                10、删除学生         ")
+    print("    11、增加管理员              12、删除管理员         ")
+    print("    13、修改学生密码            14、修改管理员密码      ")
+    print("    15、退出                       ")
+    print("===============>>>copyright (c) 2018<<<================")
+def Menustudents():
+    print(" ===================>>>Welcome<<<======================")
+    print("     1、查询馆藏                 2、借阅图书         ")
+    print("     3、归还图书                 4、个人借阅         ")
+    print("     5、修改密码                 6、 退出     ")
+    print("===============>>>copyright (c) 2018<<<================")
 def B_addbook():
     book = {}
     bor = 'no'
