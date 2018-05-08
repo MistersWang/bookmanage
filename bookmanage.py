@@ -2,6 +2,8 @@ import time
 import  pickle
 import os
 
+def Login():
+
 def Menumanages():   '''界面'''
 
 def Menustudents():   '''界面'''
@@ -63,7 +65,7 @@ def S_liststudent():
 
 
 # 主函数
-Menumanages() or Menustudents()
+Login()
 
 B_addbook()
 
