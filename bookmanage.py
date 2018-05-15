@@ -68,7 +68,32 @@ def M_modmanage():
 def M_listmanage():
 
 def S_addstudent()
-
+    users = {}
+    # bor='no'
+    # applytime='none'
+    print("*****在第一次输入以字母‘q’退出添加*****")
+    User_num = input("请输入您的学号：")
+    while 1:
+        if (User_num == 'q') or (User_num == 'Q'):
+            print("退出添加中....")
+            time.sleep(1)
+            exit()
+        else:
+            User_passw = input("请输入您的密码：")
+            User_power = input("请输入权限：")
+            now = int(round(time.time() * 1000))
+            times = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(now / 1000))
+            users = {"学号：": User_num, "密码：": User_passw, "权限：": User_power, "申请时间": times, }
+            # print(book)
+            f = open("./usersadd.pkl", "ab")
+            pickle.dump(users, f)
+            f.close()
+            # f=open("D:\\bookadd.pkl","rb")
+            #         # book2=pickle.load(f)
+            #         # print(book2)
+            print("学号：%s  密码：%s  权限：%s  申请时间：%s  " % (User_num, User_passw, User_power, times))
+            print("添加成功！！！")
+            User_num = input("请输入您的学号：")
 def S_delstudent():
 
 def S_modstudent():
