@@ -23,22 +23,71 @@ def Login():
         name = input("请输入学号(q退出)：")
     return
 def Menumanages():
-    print(" ===================>>>Welcome<<<======================")
-    print("     1、查询馆藏                 2、借阅图书         ")
-    print("     3、归还图书                 4、借阅列表         ")
-    print("     5、个人借阅                 6、增加图书        ")
-    print("     7、删除图书                 8、更改图书         ")
-    print("     9、增加学生                10、删除学生         ")
-    print("    11、增加管理员              12、删除管理员         ")
-    print("    13、修改学生密码            14、修改管理员密码      ")
-    print("    15、退出                       ")
-    print("===============>>>copyright (c) 2018<<<================")
+    while 1:
+        print(" ===================>>>Welcome<<<======================")
+        print("     1、查询馆藏                 2、借阅图书         ")
+        print("     3、归还图书                 4、借阅列表         ")
+        print("     5、个人借阅                 6、增加图书        ")
+        print("     7、删除图书                 8、更改图书         ")
+        print("     9、增加学生                10、删除学生         ")
+        print("    11、增加管理员              12、删除管理员         ")
+        print("    13、修改学生密码            14、修改管理员密码      ")
+        print("    15、退出                       ")
+        print("===============>>>copyright (c) 2018<<<================")
+        num = int(input("请输入对应功能的编号>>>"))
+        if num == 1:
+            pass
+        if num == 2:
+            pass
+        if num == 3:
+            pass
+        if num == 4:
+            pass
+        if num == 5:
+            pass
+        if num == 6:
+            B_addbook()
+        if num == 7:
+            pass
+        if num == 8:
+            pass
+        if num == 9:
+            S_addstudent()
+        if num == 10:
+            pass
+        if num == 11:
+            pass
+        if num == 12:
+            pass
+        if num == 13:
+            pass
+        if num == 14:
+            pass
+        if num == 15:
+            E_exit()
+
 def Menustudents():
-    print(" ===================>>>Welcome<<<======================")
-    print("     1、查询馆藏                 2、借阅图书         ")
-    print("     3、归还图书                 4、个人借阅         ")
-    print("     5、修改密码                 6、 退出     ")
-    print("===============>>>copyright (c) 2018<<<================")
+    while 1:
+        print(" ===================>>>Welcome<<<======================")
+        print("     1、查询馆藏                 2、借阅图书         ")
+        print("     3、归还图书                 4、个人借阅         ")
+        print("     5、修改密码                 6、 退出     ")
+        print("===============>>>copyright (c) 2018<<<================")
+        num = int(input("请输入对应功能的编号>>>"))
+        if num == 1:
+            pass
+        if num == 2:
+            pass
+        if num == 3:
+            pass
+        if num == 4:
+            pass
+        if num == 5:
+            pass
+        if num == 6:
+            E_exit()
+
+
 def B_addbook():
     book = {}
     bor = 'no'
@@ -49,7 +98,7 @@ def B_addbook():
         if (Book_isn == 'q') or (Book_isn == 'Q'):
             print("退出添加中....")
             time.sleep(2)
-            exit()
+            return
         else:
             Book_name = input("请输入书的名字：")
             Book_pub = input("请输入出版社名称：")
@@ -95,7 +144,7 @@ def S_addstudent():
         if (User_num == 'q') or (User_num == 'Q'):
             print("退出添加中....")
             time.sleep(1)
-            exit()
+            return
         else:
             User_passw = input("请输入您的密码：")
             User_power = input("请输入权限：")
@@ -103,7 +152,7 @@ def S_addstudent():
             times = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(now / 1000))
             users = {"学号：": User_num, "密码：": User_passw, "权限：": User_power, "申请时间": times, }
             # print(book)
-            f = open("./usersadd.pkl", "ab")
+            f = open("D:\\python_code\\usersadd.pkl", "ab")
             pickle.dump(users, f)
             f.close()
             # f=open("D:\\bookadd.pkl","rb")
@@ -118,43 +167,12 @@ def S_addstudent():
 
 # def S_liststudent():
 
+def E_exit():
+    print("正在退出....")
+    time.sleep(1)
+    exit()
 
 
 Login()
 
-# B_addbook()
 
-
-# B_delbook()
-
-
-# B_modbook()
-
-
-# B_listbook()
-
-
-# B_listbrobook()
-
-
-# M_addmanage()
-
-
-# M_delmanage()
-
-
-# M_modmanage()
-
-
-# M_listmanage()
-
-
-# S_addstudent()
-
-
-# S_delstudent()
-
-# S_modstudent()
-
-
-# S_liststudent()
