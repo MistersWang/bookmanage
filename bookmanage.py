@@ -3,7 +3,25 @@ import  pickle
 import os
 
 def Login():
+    name = input("请输入学号(q退出)：")
+    while (name != 'q') and (name != 'Q'):
+        passw = input("请输入密码：")
+        with open("D:\\python_code\\usersadd.pkl", "rb") as f:
+            b = f.seek(0, os.SEEK_END)
+            a = f.seek(0, os.SEEK_SET)
+            while f.tell() != b:
+                mylist = pickle.load(f)
+                if mylist["学号："] == name and mylist["密码："] == passw:
+                    if mylist["权限："] == "1":
+                        Menumanages()
+                        return
+                    else:
+                        Menustudents()
+                        return
 
+        print("账号或密码错误，请重新输入！！")
+        name = input("请输入学号(q退出)：")
+    return
 def Menumanages():
     print(" ===================>>>Welcome<<<======================")
     print("     1、查询馆藏                 2、借阅图书         ")
@@ -51,23 +69,23 @@ def B_addbook():
                   % (Book_isn, Book_name, Book_pub, Book_price, times, bor, bortime))
             print("入库成功！！！")
             Book_isn = input("请输入书的ISN编号：")
-def B_delbook():
+# def B_delbook():
 
-def B_modbook():
+# def B_modbook():
 
-def B_listbook():
+# def B_listbook():
 
-def B_listbrobook():
+# def B_listbrobook():
 
-def M_addmanage():
+# def M_addmanage():
 
-def M_delmanage():
+# def M_delmanage():
 
-def M_modmanage():
+# def M_modmanage():
 
-def M_listmanage():
+# def M_listmanage():
 
-def S_addstudent()
+def S_addstudent():
     users = {}
     # bor='no'
     # applytime='none'
@@ -94,50 +112,49 @@ def S_addstudent()
             print("学号：%s  密码：%s  权限：%s  申请时间：%s  " % (User_num, User_passw, User_power, times))
             print("添加成功！！！")
             User_num = input("请输入您的学号：")
-def S_delstudent():
+# def S_delstudent():
 
-def S_modstudent():
+# def S_modstudent():
 
-def S_liststudent():
+# def S_liststudent():
 
 
 
-# 主函数
 Login()
 
-B_addbook()
+# B_addbook()
 
 
-B_delbook()
+# B_delbook()
 
 
-B_modbook()
+# B_modbook()
 
 
-B_listbook()
+# B_listbook()
 
 
-B_listbrobook()
+# B_listbrobook()
 
 
-M_addmanage()
+# M_addmanage()
 
 
-M_delmanage()
+# M_delmanage()
 
 
-M_modmanage()
+# M_modmanage()
 
 
-M_listmanage()
+# M_listmanage()
 
 
-S_addstudent()
+# S_addstudent()
 
 
-S_delstudent()
+# S_delstudent()
 
-S_modstudent()
+# S_modstudent()
 
 
-S_liststudent()
+# S_liststudent()
