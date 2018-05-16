@@ -36,7 +36,8 @@ def Menumanages():
         print("===============>>>copyright (c) 2018<<<================")
         num = int(input("请输入对应功能的编号>>>"))
         if num == 1:
-            pass
+            Bookname=input("请输入您想要查找的书名：")
+            B_listbook(Bookname)
         if num == 2:
             pass
         if num == 3:
@@ -75,7 +76,8 @@ def Menustudents():
         print("===============>>>copyright (c) 2018<<<================")
         num = int(input("请输入对应功能的编号>>>"))
         if num == 1:
-            pass
+            Bookname = input("请输入您想要查找的书名：")
+            B_listbook(Bookname)
         if num == 2:
             pass
         if num == 3:
@@ -105,10 +107,10 @@ def B_addbook():
             Book_price = input("请输入书价格：")
             now = int(round(time.time() * 1000))
             times = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(now / 1000))
-            book = {"ISN：": Book_isn, "书名：": Book_name, "出版社：": Book_pub, "价格：": Book_price + "￥", \
-                    "入库时间：": times, "是否借出：": bor, "借出时间：": bortime}
+            book = {"ISN": Book_isn, "书名": Book_name, "出版社": Book_pub, "价格": Book_price + "￥", \
+                    "入库时间": times, "是否借出": bor, "借出时间": bortime}
             # print(book)
-            f = open("D:\\bookadd.pkl", "wb")
+            f = open("D:\\bookadd.pkl", "ab")
             pickle.dump(book, f)
             f.close()
             # f=open("D:\\bookadd.pkl","rb")
@@ -122,7 +124,28 @@ def B_addbook():
 
 # def B_modbook():
 
-# def B_listbook():
+def B_listbook(bookname):
+    num = int(0)
+    with open('D:\\bookadd.pkl', 'rb') as pickle_file:
+        a = pickle_file.seek(0, os.SEEK_END)
+        b = pickle_file.seek(0, os.SEEK_SET)
+        with open('D:\\my_list.txt', 'wb') as pickle_file1:
+            while pickle_file.tell() != a:
+                line = pickle.load(pickle_file)
+                dictk = line
+                if (dictk['书名'] == bookname):
+                    num += 1
+                    pickle.dump(dictk, pickle_file1)
+    if num == 0:
+        print("没有此书...")
+        time.sleep(1)
+    else:
+        with open('D:\\my_list.txt', 'rb') as pickle_file2:
+            a1 = pickle_file2.seek(0, os.SEEK_END)
+            b1 = pickle_file2.seek(0, os.SEEK_SET)
+            while pickle_file2.tell() != a1:
+                my_list2 = pickle.load(pickle_file2)
+                print(my_list2)
 
 # def B_listbrobook():
 
@@ -150,7 +173,7 @@ def S_addstudent():
             User_power = input("请输入权限：")
             now = int(round(time.time() * 1000))
             times = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(now / 1000))
-            users = {"学号：": User_num, "密码：": User_passw, "权限：": User_power, "申请时间": times, }
+            users = {"学号": User_num, "密码": User_passw, "权限": User_power, "申请时间": times, }
             # print(book)
             f = open("D:\\python_code\\usersadd.pkl", "ab")
             pickle.dump(users, f)
