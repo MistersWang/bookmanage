@@ -45,7 +45,7 @@ def Menumanages():
         if num == 4:
             pass
         if num == 5:
-            pass
+            print("123")
         if num == 6:
             B_addbook()
         if num == 7:
