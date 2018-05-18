@@ -11,8 +11,8 @@ def Login():
             a = f.seek(0, os.SEEK_SET)
             while f.tell() != b:
                 mylist = pickle.load(f)
-                if mylist["学号："] == name and mylist["密码："] == passw:
-                    if mylist["权限："] == "1":
+                if mylist["学号"] == name and mylist["密码"] == passw:
+                    if mylist["权限"] == "1":
                         Menumanages()
                         return
                     else:
